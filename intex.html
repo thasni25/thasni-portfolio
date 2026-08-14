@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thasni M.S. | Accounting Portfolio</title>
+  
+  <!-- Modern Clean Professional Typography (Inter + Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      /* Editorial Blue Palette */
+      --bg-blue-dark: #1b3852;
+      --bg-blue-medium: #244866;
+      --bg-blue-light: #f4f7fa;
+      --accent-blue: #4a7fa8;
+      --accent-deep-blue: #0f2438;
+      --bg-white: #ffffff;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --border-color: rgba(15, 23, 42, 0.08);
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-blue-dark);
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 28px 16px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Magazine Frame Container */
+    .magazine-canvas {
+      max-width: 1340px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(10, 26, 40, 0.35);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      position: relative;
+    }
+
+    /* ---------------- LEFT SCROLLABLE CONTENT ---------------- */
+    .content-pane {
+      padding: 56px 48px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+      overflow-y: auto;
+      max-height: 90vh;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-blue) transparent;
+    }
+
+    .content-pane::-webkit-scrollbar {
+      width: 5px;
+    }
+    .content-pane::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 10px;
+    }
+
+    /* Clean Corporate Section Typography */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .lead-text {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      width: 100%;
+      margin: 32px 0 0;
+    }
+
+    /* Stats Grid */
+    .stats-row {
+      display: flex;
+      gap: 40px;
+      margin-top: 28px;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--accent-deep-blue);
+      line-height: 1;
+    }
+
+    .stat-item p {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* Skill Cards */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .skill-card {
+      background: var(--bg-blue-light);
+      padding: 22px;
+      border-radius: 16px;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .skill-card:hover {
+      background: #ffffff;
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(36, 72, 102, 0.08);
+    }
+
+    .skill-card .icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg-blue-medium);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .skill-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .skill-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Experience Card */
+    .timeline-card {
+      background: var(--bg-blue-light);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--bg-blue-medium);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .timeline-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-card .company {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .timeline-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .timeline-card ul li {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .timeline-card ul li i {
+      color: var(--bg-blue-medium);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ---------------- RIGHT EDITORIAL COVER ---------------- */
+    .cover-pane {
+      background: var(--bg-blue-medium);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 44px;
+      color: #ffffff;
+    }
+
+    /* Top Nav Metadata */
+    .cover-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    .menu-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.2s;
+    }
+
+    .menu-circle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Cover Title */
+    .big-name-wrap {
+      position: relative;
+      margin-top: 24px;
+      z-index: 2;
+    }
+
+    .roles-subtitle {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .giant-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.8rem, 6.5vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #ffffff;
+    }
+
+    /* Editorial Poster Visual Representation */
+    .hero-graphic-frame {
+      position: relative;
+      height: 440px;
+      margin: 24px 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(16, 36, 54, 0.15) 0%, rgba(10, 22, 34, 0.88) 100%),
+                  url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
+    }
+
+    /* QR Code Simulation Badge */
+    .qr-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 64px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .hero-quote {
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 92%;
+      border-left: 2px solid var(--accent-blue);
+      padding-left: 14px;
+    }
+
+    /* Cover Contact Actions */
+    .cover-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .contact-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: var(--accent-deep-blue);
+      padding: 13px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: -0.01em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-pill-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .direct-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .link-icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .link-icon-btn:hover {
+      background: #ffffff;
+      color: var(--accent-deep-blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .magazine-canvas {
+        grid-template-columns: 1fr;
+      }
+      .content-pane {
+        max-height: none;
+        order: 2;
+        padding: 40px 24px;
+      }
+      .cover-pane {
+        order: 1;
+        padding: 32px 20px;
+      }
+      .hero-graphic-frame {
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        gap: 20px;
+      }
+      .giant-title {
+        font-size: 3.4rem;
+      }
+      .cover-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .contact-pill-btn {
+        justify-content: center;
+      }
+      .direct-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="magazine-canvas">
+    
+    <!-- LEFT PANEL: PORTFOLIO CONTENT -->
+    <section class="content-pane">
+      
+      <!-- About Section -->
+      <div>
+        <h2 class="section-title">About Me</h2>
+        <p class="lead-text">
+          I am <strong>Thasni M.S.</strong>, a proactive B.Com Finance student with practical billing exposure and strong foundational knowledge in financial accounting and Tally Prime. 
+        </p>
+        <p class="lead-text" style="margin-top: 12px;">
+          I am seeking an entry-level position as a <strong>Junior Accountant</strong> where I can assist daily accounting operations, ensure precise ledger entries, and develop hands-on commercial accounting expertise.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <h3>B.Com</h3>
+            <p>Finance Major</p>
+          </div>
+          <div class="stat-item">
+            <h3>1 Mo.</h3>
+            <p>Billing Practice</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Accuracy Focus</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+      </div>
+
+      <!-- Core Skills Section -->
+      <div>
+        <h2 class="section-title">Accounting & Skills</h2>
+        <p class="lead-text">Structured financial foundations and technical competencies ready to be applied from day one.</p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="icon-box">
+              <i data-lucide="database" size="18"></i>
+            </div>
+            <h4>Tally Prime</h4>
+            <p>Ledger management, basic vouchers, daybook & trial balance basics.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box">
+              <i data-lucide="receipt" size="18"></i>
+            </div>
+            <h4>Billing & Invoicing</h4>
+            <p>Accurate customer invoicing, receipt reconciliation, and entry tracking.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box">
+              <i data-lucide="book-open" size="18"></i>
+            </div>
+            <h4>Journal Entries</h4>
+            <p>Solid principles of Debit & Credit, ledger postings, and balance checks.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box">
+              <i data-lucide="message-square" size="18"></i>
+            </div>
+            <h4>Communication</h4>
+            <p>Professional verbal and written communication for team & client interaction.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+      </div>
+
+      <!-- Experience & Education -->
+      <div>
+        <h2 class="section-title">Experience & Studies</h2>
+        
+        <div class="timeline-card">
+          <span class="badge">Practical Exposure</span>
+          <h4>Billing Operations Assistant</h4>
+          <div class="company">
+            <i data-lucide="calendar" size="14"></i> 1 Month Experience
+          </div>
+          <ul>
+            <li>
+              <i data-lucide="check" size="14"></i>
+              <span>Generated and verified customer invoices and billing registers.</span>
+            </li>
+            <li>
+              <i data-lucide="check" size="14"></i>
+              <span>Maintained daily cash and credit records with numerical accuracy.</span>
+            </li>
+            <li>
+              <i data-lucide="check" size="14"></i>
+              <span>Gained firsthand understanding of retail/business billing workflows.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-card" style="margin-top: 16px; background: #ffffff;">
+          <span class="badge" style="background: var(--text-dark);">Academics</span>
+          <h4>Bachelor of Commerce (B.Com)</h4>
+          <div class="company">
+            <i data-lucide="graduation-cap" size="14"></i> Specialization in Finance
+          </div>
+          <p class="lead-text" style="font-size: 0.85rem;">
+            Coursework includes Financial Accounting, Corporate Accounting, Taxation Principles, and Business Management.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- RIGHT PANEL: EDITORIAL COVER -->
+    <aside class="cover-pane">
+      
+      <!-- Top Meta -->
+      <div class="cover-top-meta">
+        <div class="menu-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <i data-lucide="menu" size="18"></i>
+        </div>
+        <span>Accounting Portfolio</span>
+        <span>© 2026</span>
+      </div>
+
+      <!-- Clean Typography Header -->
+      <div class="big-name-wrap">
+        <div class="roles-subtitle">
+          <span>Junior Accountant</span>
+          <span>B.Com Finance</span>
+        </div>
+        <h1 class="giant-title">Thasni</h1>
+      </div>
+
+      <!-- Hero Poster Graphic -->
+      <div class="hero-graphic-frame">
+        <div class="qr-badge" title="Scan to connect">
+          <i data-lucide="qr-code" size="34"></i>
+        </div>
+        <blockquote class="hero-quote">
+          “To start a career as a Junior Accountant, apply structured knowledge in Tally Prime, and deliver accurate financial bookkeeping.”
+        </blockquote>
+      </div>
+
+      <!-- Footer / Contact Actions -->
+      <div class="cover-footer">
+        <a href="mailto:thasni.shamsudheen5@gmail.com" class="contact-pill-btn">
+          <i data-lucide="mail" size="16"></i>
+          <span>Get in Touch</span>
+        </a>
+
+        <div class="direct-links">
+          <a href="tel:8891792368" class="link-icon-btn" title="Call Direct">
+            <i data-lucide="phone" size="18"></i>
+          </a>
+          <a href="mailto:thasni.shamsudheen5@gmail.com" class="link-icon-btn" title="Send Email">
+            <i data-lucide="send" size="18"></i>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
