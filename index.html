@@ -68,7 +68,7 @@
       background: #ffffff;
       display: flex;
       flex-direction: column;
-      gap: 52px;
+      gap: 48px;
       overflow-y: auto;
       max-height: 90vh;
       scrollbar-width: thin;
@@ -83,14 +83,14 @@
       border-radius: 10px;
     }
 
-    /* Clean Corporate Section Typography */
+    /* Quick Overview / Stats Section */
     .section-title {
       font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--text-dark);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       line-height: 1.2;
     }
 
@@ -105,14 +105,14 @@
       height: 1px;
       background: var(--border-color);
       width: 100%;
-      margin: 32px 0 0;
+      margin: 28px 0 0;
     }
 
     /* Stats Grid */
     .stats-row {
       display: flex;
-      gap: 40px;
-      margin-top: 28px;
+      gap: 36px;
+      margin-top: 24px;
     }
 
     .stat-item h3 {
@@ -183,7 +183,7 @@
       line-height: 1.45;
     }
 
-    /* Experience Card */
+    /* Experience & Education Cards */
     .timeline-card {
       background: var(--bg-blue-light);
       border: 1px solid var(--border-color);
@@ -269,22 +269,27 @@
       opacity: 0.9;
     }
 
-    .menu-circle {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      display: flex;
+    .menu-link-btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.08);
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
-    .menu-circle:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .menu-link-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.6);
     }
 
     /* Cover Title */
@@ -314,7 +319,7 @@
       color: #ffffff;
     }
 
-    /* Editorial Poster Visual Representation */
+    /* Hero Poster Graphic Frame */
     .hero-graphic-frame {
       position: relative;
       height: 440px;
@@ -459,14 +464,11 @@
     <!-- LEFT PANEL: PORTFOLIO CONTENT -->
     <section class="content-pane">
       
-      <!-- About Section -->
+      <!-- Quick Highlights Section -->
       <div>
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">Profile Overview</h2>
         <p class="lead-text">
-          I am <strong>Thasni M.S.</strong>, a proactive B.Com Finance student with practical billing exposure and strong foundational knowledge in financial accounting and Tally Prime. 
-        </p>
-        <p class="lead-text" style="margin-top: 12px;">
-          I am seeking an entry-level position as a <strong>Junior Accountant</strong> where I can assist daily accounting operations, ensure precise ledger entries, and develop hands-on commercial accounting expertise.
+          B.Com Finance graduate equipped with practical billing operations, journal entry formulation, and hands-on Tally Prime experience.
         </p>
 
         <div class="stats-row">
@@ -573,11 +575,12 @@
     <!-- RIGHT PANEL: EDITORIAL COVER -->
     <aside class="cover-pane">
       
-      <!-- Top Meta -->
+      <!-- Top Meta with Link to About Page -->
       <div class="cover-top-meta">
-        <div class="menu-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-          <i data-lucide="menu" size="18"></i>
-        </div>
+        <a href="about.html" class="menu-link-btn" title="View Full Bio">
+          <i data-lucide="user" size="14"></i>
+          <span>About Me</span>
+        </a>
         <span>Accounting Portfolio</span>
         <span>© 2026</span>
       </div>
