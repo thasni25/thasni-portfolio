@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thasni M.S. | Accounting Portfolio</title>
   
-  <!-- Fonts -->
+  <!-- Modern Clean Professional Typography (Inter + Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
-      --bg-olive: #546549;
-      --bg-olive-light: #627455;
-      --bg-cream: #f4f4f0;
+      /* Editorial Blue Palette */
+      --bg-blue-dark: #1b3852;
+      --bg-blue-medium: #244866;
+      --bg-blue-light: #f4f7fa;
+      --accent-blue: #4a7fa8;
+      --accent-deep-blue: #0f2438;
       --bg-white: #ffffff;
-      --text-dark: #121512;
-      --text-muted: #676e65;
-      --accent-sage: #8b9d7e;
-      --border-color: rgba(18, 21, 18, 0.1);
-      --font-display: 'Syne', sans-serif;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --border-color: rgba(15, 23, 42, 0.08);
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -38,12 +40,13 @@
     }
 
     body {
-      background-color: var(--bg-olive);
+      background-color: var(--bg-blue-dark);
       font-family: var(--font-body);
       color: var(--text-dark);
       line-height: 1.6;
-      padding: 24px 16px;
+      padding: 28px 16px;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Magazine Frame Container */
@@ -51,9 +54,9 @@
       max-width: 1340px;
       margin: 0 auto;
       background: var(--bg-white);
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 25px 60px rgba(10, 26, 40, 0.35);
       display: grid;
       grid-template-columns: 1fr 1.15fr;
       position: relative;
@@ -65,35 +68,35 @@
       background: #ffffff;
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: 52px;
       overflow-y: auto;
       max-height: 90vh;
       scrollbar-width: thin;
-      scrollbar-color: var(--accent-sage) transparent;
+      scrollbar-color: var(--accent-blue) transparent;
     }
 
     .content-pane::-webkit-scrollbar {
       width: 5px;
     }
     .content-pane::-webkit-scrollbar-thumb {
-      background: var(--accent-sage);
+      background: var(--accent-blue);
       border-radius: 10px;
     }
 
-    /* Section Typography */
+    /* Clean Corporate Section Typography */
     .section-title {
       font-family: var(--font-display);
-      font-size: 2.3rem;
-      font-weight: 800;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--text-dark);
-      margin-bottom: 20px;
-      line-height: 1.1;
+      margin-bottom: 18px;
+      line-height: 1.2;
     }
 
     .lead-text {
       color: var(--text-muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 400;
       line-height: 1.7;
     }
@@ -108,28 +111,29 @@
     /* Stats Grid */
     .stats-row {
       display: flex;
-      gap: 32px;
-      margin-top: 24px;
+      gap: 40px;
+      margin-top: 28px;
     }
 
     .stat-item h3 {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 1.85rem;
       font-weight: 800;
-      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      color: var(--accent-deep-blue);
       line-height: 1;
     }
 
     .stat-item p {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
-    /* Skill Cards / Grid */
+    /* Skill Cards */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -138,87 +142,92 @@
     }
 
     .skill-card {
-      background: var(--bg-cream);
-      padding: 20px;
+      background: var(--bg-blue-light);
+      padding: 22px;
       border-radius: 16px;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       border: 1px solid transparent;
     }
 
     .skill-card:hover {
       background: #ffffff;
-      border-color: var(--accent-sage);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(36, 72, 102, 0.08);
     }
 
     .skill-card .icon-box {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
-      background: var(--bg-olive);
+      background: var(--bg-blue-medium);
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .skill-card h4 {
-      font-size: 1rem;
+      font-family: var(--font-display);
+      font-size: 0.98rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       color: var(--text-dark);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .skill-card p {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* Experience Card */
     .timeline-card {
-      background: #fbfbf9;
+      background: var(--bg-blue-light);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
+      border-radius: 18px;
       padding: 24px;
       position: relative;
     }
 
     .badge {
       display: inline-block;
-      background: var(--bg-olive);
+      background: var(--bg-blue-medium);
       color: #ffffff;
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
     .timeline-card h4 {
-      font-size: 1.15rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
       font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 4px;
     }
 
     .timeline-card .company {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 6px;
+      font-weight: 500;
     }
 
     .timeline-card ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 9px;
     }
 
     .timeline-card ul li {
@@ -230,20 +239,20 @@
     }
 
     .timeline-card ul li i {
-      color: var(--bg-olive);
+      color: var(--bg-blue-medium);
       flex-shrink: 0;
       margin-top: 3px;
     }
 
     /* ---------------- RIGHT EDITORIAL COVER ---------------- */
     .cover-pane {
-      background: var(--bg-olive-light);
+      background: var(--bg-blue-medium);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px;
+      padding: 44px;
       color: #ffffff;
     }
 
@@ -254,7 +263,7 @@
       align-items: center;
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       z-index: 2;
       opacity: 0.9;
@@ -264,13 +273,13 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       transition: all 0.2s;
     }
 
@@ -278,10 +287,10 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    /* Giant Title Behind / Across Subject */
+    /* Cover Title */
     .big-name-wrap {
       position: relative;
-      margin-top: 20px;
+      margin-top: 24px;
       z-index: 2;
     }
 
@@ -292,45 +301,45 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: -10px;
+      margin-bottom: 6px;
       color: rgba(255, 255, 255, 0.85);
     }
 
     .giant-title {
       font-family: var(--font-display);
-      font-size: clamp(4.5rem, 8vw, 7.5rem);
+      font-size: clamp(3.8rem, 6.5vw, 6rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      line-height: 0.88;
-      color: rgba(255, 255, 255, 0.92);
+      line-height: 0.95;
+      color: #ffffff;
     }
 
     /* Editorial Poster Visual Representation */
     .hero-graphic-frame {
       position: relative;
-      height: 480px;
-      margin: 20px 0;
-      border-radius: 20px;
+      height: 440px;
+      margin: 24px 0;
+      border-radius: 18px;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(30, 42, 25, 0.2) 0%, rgba(20, 26, 17, 0.85) 100%),
+      background: linear-gradient(180deg, rgba(16, 36, 54, 0.15) 0%, rgba(10, 22, 34, 0.88) 100%),
                   url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 30px;
-      box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+      padding: 28px;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
     }
 
     /* QR Code Simulation Badge */
     .qr-badge {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 68px;
-      height: 68px;
+      top: 20px;
+      right: 20px;
+      width: 64px;
+      height: 64px;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -339,12 +348,12 @@
     }
 
     .hero-quote {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.92);
-      max-width: 90%;
-      border-left: 2px solid var(--accent-sage);
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 92%;
+      border-left: 2px solid var(--accent-blue);
       padding-left: 14px;
     }
 
@@ -362,24 +371,24 @@
       align-items: center;
       gap: 10px;
       background: #ffffff;
-      color: var(--text-dark);
-      padding: 14px 28px;
+      color: var(--accent-deep-blue);
+      padding: 13px 26px;
       border-radius: 100px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.85rem;
-      letter-spacing: 0.03em;
+      letter-spacing: -0.01em;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .contact-pill-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
     .direct-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
     }
 
     .link-icon-btn {
@@ -398,7 +407,7 @@
 
     .link-icon-btn:hover {
       background: #ffffff;
-      color: var(--text-dark);
+      color: var(--accent-deep-blue);
     }
 
     /* Responsive */
@@ -413,10 +422,10 @@
       }
       .cover-pane {
         order: 1;
-        padding: 30px 20px;
+        padding: 32px 20px;
       }
       .hero-graphic-frame {
-        height: 380px;
+        height: 360px;
       }
     }
 
@@ -424,8 +433,11 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
+      .stats-row {
+        gap: 20px;
+      }
       .giant-title {
-        font-size: 4rem;
+        font-size: 3.4rem;
       }
       .cover-footer {
         flex-direction: column;
@@ -558,7 +570,7 @@
 
     </section>
 
-    <!-- RIGHT PANEL: EDITORIAL MAGAZINE COVER -->
+    <!-- RIGHT PANEL: EDITORIAL COVER -->
     <aside class="cover-pane">
       
       <!-- Top Meta -->
@@ -570,7 +582,7 @@
         <span>© 2026</span>
       </div>
 
-      <!-- Big Typography Header -->
+      <!-- Clean Typography Header -->
       <div class="big-name-wrap">
         <div class="roles-subtitle">
           <span>Junior Accountant</span>
@@ -582,7 +594,7 @@
       <!-- Hero Poster Graphic -->
       <div class="hero-graphic-frame">
         <div class="qr-badge" title="Scan to connect">
-          <i data-lucide="qr-code" size="38"></i>
+          <i data-lucide="qr-code" size="34"></i>
         </div>
         <blockquote class="hero-quote">
           “To start a career as a Junior Accountant, apply structured knowledge in Tally Prime, and deliver accurate financial bookkeeping.”
